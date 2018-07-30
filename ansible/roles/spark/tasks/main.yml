@@ -1,7 +1,7 @@
 ---
 
 - name: Extract Spark {{ spark.version }} with hadoop {{ hadoop.version }}
-  unarchive: src=http://d3kbcqa49mib13.cloudfront.net/spark-{{ spark.version }}-bin-hadoop{{ hadoop.version }}.tgz
+  unarchive: src=http://ftp.cc.uoc.gr/mirrors/apache/spark/spark-{{ spark.version }}/spark-{{ spark.version }}-bin-hadoop{{ hadoop.version }}.tgz
              dest={{ downloads_directory }} copy=no
 - name: Move Spark to install directory
   command: mv {{ downloads_directory }}/spark-{{ spark.version }}-bin-hadoop{{ hadoop.version }} /usr/local/spark
@@ -11,3 +11,8 @@
               line="PATH=\1\2:/usr/local/spark/bin\3"
 - name: Set SPARK_HOME
   lineinfile: dest=/etc/environment state=present regexp='^SPARK_HOME' line='SPARK_HOME=/usr/local/spark'
+- name: Set PYSPARK_PYTHON
+  lineinfile: dest=/etc/environment
+              state=present
+              regexp='^PYSPARK_PYTHON'
+              line='PYSPARK_PYTHON=python3'

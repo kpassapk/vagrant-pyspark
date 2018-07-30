@@ -1,5 +1,6 @@
 # vagrant folder
 .vagrant
+package.box
 
 # JetBrains
 .idea
@@ -11,3 +12,4 @@
 ansible/playbook.retry
 # Ansible variables
 ansible/variables.yml
+/vagrant-ssh-config

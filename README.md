@@ -26,21 +26,21 @@ Variable file should contain following variables:
 scala:
   version: 2.11.8
 spark:
-  version: 2.1.0
+  version: 2.3.1
 hadoop:
   version: 2.7
-  
 ```
 
 You can find examples for Spark 1.6.3 and 2.1.0 in this repo:
 
 * [ansible/vars/vars_spark_1.6.3.yml](ansible/vars/vars_spark_1.6.3.yml)
 * [ansible/vars/vars_spark_2.1.0.yml](ansible/vars/vars_spark_2.1.0.yml)
+* [ansible/vars/vars_spark_2.3.1.yml](ansible/vars/vars_spark_2.3.1.yml)
 
 You can create a symbolic link to use them:
 
 ```bash
-ln -s vars/vars_spark_2.1.0.yml ansible/variables.yml
+ln -s vars/vars_spark_2.3.1.yml ansible/variables.yml
 ```
 
 If you use other versions, PRs are welcome with your version setup.
@@ -48,7 +48,6 @@ If you use other versions, PRs are welcome with your version setup.
 ## Required
 
 * [Vagrant](https://www.vagrantup.com/)
-* [Ansible](https://www.ansible.com/)
 
 ## How to use
 
@@ -64,8 +63,42 @@ available to run in the Vagrant box.
 config.vm.synced_folder "/Project/path/in/host/machine", "/Destination/in/vagrant/box"
 ```
 
-### Copy this project
-You can copy this project inside your Spark project and have all together.
+```
+vagrant up
+```
+
+### Running PySpark
+
+```
+    $ pyspark
+```
+
+### Running Jupyter
+
+```
+    $ jupyter notebook --no-browser
+```
+
+Since we installed `findspark`, we can start a new iPython notebook and run PySpark as follows:
+
+```
+    import findspark
+    findspark.init()
+
+    import pyspark
+```
 
 ## PySpark Unit Testing
+
 You can find good explanation and examples [here](https://github.com/kawadia/pyspark.test)
+
+
+## Bugs
+
+If you can't get Vagrant's port forwarding to work, use an SSH tunnel:
+
+```
+vagrant ssh-config > vagrant-ssh-config
+ssh -L 8888:127.0.0.1:8888 -F vagrant-ssh-config pyspark-box
+
+```
