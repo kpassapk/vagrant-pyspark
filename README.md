@@ -26,10 +26,9 @@ Variable file should contain following variables:
 scala:
   version: 2.11.8
 spark:
-  version: 2.1.0
+  version: 2.3.1
 hadoop:
   version: 2.7
-  
 ```
 
 You can find examples for Spark 1.6.3 and 2.1.0 in this repo:
@@ -63,9 +62,39 @@ available to run in the Vagrant box.
 ```ruby
 config.vm.synced_folder "/Project/path/in/host/machine", "/Destination/in/vagrant/box"
 ```
+## Running PySpark
 
-### Copy this project
-You can copy this project inside your Spark project and have all together.
+```
+    $ PYSPARK_PYTHON=python3 pyspark
+```
+
+
+## Running Jupyter
+
+```
+    $ jupyter notebook --no-browser
+```
+
+Since we installed `findspark`, we can start a new iPython notebook and run PySpark as follows:
+
+```
+    import findspark
+    findspark.init()
+
+    import pyspark
+```
 
 ## PySpark Unit Testing
+
 You can find good explanation and examples [here](https://github.com/kawadia/pyspark.test)
+
+
+## Bugs
+
+If you can't get Vagrant's port forwarding to work, use an SSH tunnel:
+
+```
+vagrant ssh-config > vagrant-ssh-config
+ssh -L 8888:127.0.0.1:8888 -F vagrant-ssh-config pyspark-box
+
+```

@@ -1,0 +1,8 @@
+---
+
+scala:
+  version: 2.12.6
+spark:
+  version: 2.3.1
+hadoop:
+  version: 2.7

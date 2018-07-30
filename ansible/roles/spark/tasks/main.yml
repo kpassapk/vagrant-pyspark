@@ -1,7 +1,7 @@
 ---
 
 - name: Extract Spark {{ spark.version }} with hadoop {{ hadoop.version }}
-  unarchive: src=http://d3kbcqa49mib13.cloudfront.net/spark-{{ spark.version }}-bin-hadoop{{ hadoop.version }}.tgz
+  unarchive: src=http://ftp.cc.uoc.gr/mirrors/apache/spark/spark-{{ spark.version }}/spark-{{ spark.version }}-bin-hadoop{{ hadoop.version }}.tgz
              dest={{ downloads_directory }} copy=no
 - name: Move Spark to install directory
   command: mv {{ downloads_directory }}/spark-{{ spark.version }}-bin-hadoop{{ hadoop.version }} /usr/local/spark

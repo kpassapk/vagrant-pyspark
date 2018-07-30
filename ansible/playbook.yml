@@ -4,6 +4,7 @@
 
   vars:
     downloads_directory: "{{ ansible_env.HOME }}/downloads"
+    ansible_python_interpreter: /usr/bin/python3
   vars_files:
     - variables.yml
 
