@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#
+# This Vagrantfile is meant for Windows users, who cannot install Ansible.
+# On a non-Windows machine, run
+#
+# "vagrant box package" (this will create 'package.box')
+#
+# Then, in this repo
+#
+# vagrant box add --name pyspark-box /path/to/package.box
+
+Vagrant.configure(2) do |config|
+
+  config.vm.box = "pyspark-box"
+
+  # Forward ssh keys from host to guest
+  config.ssh.forward_agent = true
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 4096
+  end
+
+  # Share Jupyter Notebook's port with the outside world
+  config.vm.network "forwarded_port", guest: 8888, host: 8890
+
+  config.vm.synced_folder "/Users/kyle/src/org/bitbucket/kpassapk/cs38-fall18-projects", "/projects"
+end
