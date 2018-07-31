@@ -47,7 +47,6 @@ If you use other versions, PRs are welcome with your version setup.
 ## Required
 
 * [Vagrant](https://www.vagrantup.com/)
-* [Ansible](https://www.ansible.com/)
 
 ## How to use
 
@@ -62,14 +61,18 @@ available to run in the Vagrant box.
 ```ruby
 config.vm.synced_folder "/Project/path/in/host/machine", "/Destination/in/vagrant/box"
 ```
-## Running PySpark
+
+```
+vagrant up
+```
+
+### Running PySpark
 
 ```
     $ PYSPARK_PYTHON=python3 pyspark
 ```
 
-
-## Running Jupyter
+### Running Jupyter
 
 ```
     $ jupyter notebook --no-browser

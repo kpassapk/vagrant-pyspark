@@ -24,5 +24,4 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.synced_folder "/Users/kyle/src/org/bitbucket/kpassapk/cs38-fall18-projects", "/projects"
-  config.vm.synced_folder "/Users/kyle/src/org/bitbucket/kpassapk/spark-playground", "/playground"
 end
