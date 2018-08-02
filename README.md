@@ -47,6 +47,9 @@ If you use other versions, PRs are welcome with your version setup.
 ## Required
 
 * [Vagrant](https://www.vagrantup.com/)
+* [Ansible](https://www.ansible.com/)
+
+If you can't get Ansible on your machine (e.g. you're running Windows), 
 
 ## How to use
 
@@ -69,7 +72,7 @@ vagrant up
 ### Running PySpark
 
 ```
-    $ PYSPARK_PYTHON=python3 pyspark
+    $ pyspark
 ```
 
 ### Running Jupyter
@@ -87,6 +90,16 @@ Since we installed `findspark`, we can start a new iPython notebook and run PySp
     import pyspark
 ```
 
+## Packaging
+
+To use the machine in your project repo, package it using the following command:
+
+```
+vagrant package
+```
+
+This will create a file called `package.box` in the current directory.
+
 ## PySpark Unit Testing
 
 You can find good explanation and examples [here](https://github.com/kawadia/pyspark.test)
@@ -101,3 +114,4 @@ vagrant ssh-config > vagrant-ssh-config
 ssh -L 8888:127.0.0.1:8888 -F vagrant-ssh-config pyspark-box
 
 ```
+

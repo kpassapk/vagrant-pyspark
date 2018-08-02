@@ -7,6 +7,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "pyspark-box"
   # Forward ssh keys from host to guest
   config.ssh.forward_agent = true
+  config.ssh.insert_key = false
 
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
@@ -23,5 +24,5 @@ Vagrant.configure(2) do |config|
     }
   end
 
-  config.vm.synced_folder "/Users/kyle/src/org/bitbucket/kpassapk/cs38-fall18-projects", "/projects"
+#  config.vm.synced_folder "/Users/kyle/src/org/bitbucket/kpassapk/cs38-fall18-projects", "/projects"
 end
