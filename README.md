@@ -71,13 +71,18 @@ vagrant up
 
 ### Running PySpark
 
+You'll be running PySpark in your project directory, not this one. However, you can try it out by running (inside the VM):
+
 ```
     $ pyspark
 ```
 
 ### Running Jupyter
 
+You'll be running Jupyter in your project directoyr, not this one. However, you can try it out by running (inside the VM):
+
 ```
+    $ cd /vagrant
     $ jupyter notebook --no-browser
 ```
 
@@ -114,4 +119,3 @@ vagrant ssh-config > vagrant-ssh-config
 ssh -L 8888:127.0.0.1:8888 -F vagrant-ssh-config pyspark-box
 
 ```
-
