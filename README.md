@@ -39,7 +39,7 @@ You can find examples for Spark 1.6.3 and 2.1.0 in this repo:
 You can create a symbolic link to use them:
 
 ```bash
-ln -s vars/vars_spark_2.1.0.yml ansible/variables.yml
+ln -s ansible/vars/vars_spark_2.1.0.yml ansible/variables.yml
 ```
 
 If you use other versions, PRs are welcome with your version setup.
