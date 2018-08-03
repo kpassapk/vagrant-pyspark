@@ -11,6 +11,10 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
+
+    # Workaround for https://github.com/hashicorp/vagrant/issues/9425 :(
+
+    v.customize [ 'modifyvm', :id, '--uartmode1', 'disconnected']
   end
 
   # Share Jupyter Notebook's port with the outside world

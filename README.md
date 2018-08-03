@@ -105,6 +105,15 @@ vagrant package
 
 This will create a file called `package.box` in the current directory.
 
+You can import this one with
+
+```
+vagrant box add pyspark-box /path/to/package.box
+
+```
+
+where package.box is the file you created earlier.
+
 ## PySpark Unit Testing
 
 You can find good explanation and examples [here](https://github.com/kawadia/pyspark.test)
