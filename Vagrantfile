@@ -18,9 +18,9 @@ Vagrant.configure(2) do |config|
   end
 
   # Share Jupyter Notebook's port with the outside world
-  config.vm.network "forwarded_port", guest: 8888, host: 8890
+#  config.vm.network "forwarded_port", guest: 8888, host: 8890
 
-  config.vm.provision "ansible" do |ansible|
+  config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "ansible/playbook.yml"
     ansible.verbose = 'v'
     ansible.extra_vars = {
