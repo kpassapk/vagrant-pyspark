@@ -16,3 +16,5 @@
   pip: name=boto3
 - name: Install python jupyter notebook
   pip: name=jupyter
+- name: Install python ipython-parallel
+  pip: name=ipython-parallel

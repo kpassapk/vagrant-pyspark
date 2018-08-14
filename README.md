@@ -11,7 +11,6 @@
 
 ## Obtener cambios de "upstream"
 
-
 ```
    git fetch origin master
    vagrant destroy
