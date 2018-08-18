@@ -17,4 +17,4 @@
 - name: Install python jupyter notebook
   pip: name=jupyter
 - name: Install python ipython-parallel
-  pip: name=ipython-parallel
+  pip: name=ipyparallel

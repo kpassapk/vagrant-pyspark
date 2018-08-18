@@ -12,6 +12,7 @@
     - init
     - jdk
     - git
+    - jq
     - scala
     - spark
     - python_tools

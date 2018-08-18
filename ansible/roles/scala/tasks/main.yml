@@ -1,10 +1,19 @@
 ---
 
+- name: Download Scala {{ scala.version }}
+  get_url:
+    url=http://downloads.lightbend.com/scala/{{ scala.version }}/scala-{{ scala.version }}.tgz
+    dest={{ downloads_directory }}/scala-{{ scala.version }}.tgz
 - name: Extract Scala {{ scala.version }}
-  unarchive: src=http://downloads.lightbend.com/scala/{{ scala.version }}/scala-{{ scala.version }}.tgz
-             dest={{ downloads_directory }} copy=no
-- name: Move Scala to install directory
-  command: mv {{ downloads_directory }}/scala-{{ scala.version }} /usr/local/scala
+  unarchive:
+    src={{ downloads_directory }}/scala-{{ scala.version }}.tgz
+    dest=/usr/local
+    copy=no
+- name: Create symlink
+  file:
+    src=/usr/local/scala-{{ scala.version }}
+    dest=/usr/local/scala
+    state=link
 - name: Add Scala to PATH
   lineinfile: dest=/etc/environment state=present backrefs=yes
               regexp='PATH=(["]*)((?!.*?/usr/local/scala/bin).*?)(["]*)$'
